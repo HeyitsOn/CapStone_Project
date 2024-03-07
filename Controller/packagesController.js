@@ -1,17 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { packages } from "../model/packages.js";
+import { packages } from "../Model/package.js";
 
 const PackageRouter = express.Router();
-const Packages = new packages(); // Initialize Packages outside of route handlers
+// const Packages = new packages(); // Initialize Packages outside of route handlers
 
 // Fetch all Packages
 PackageRouter.get('/', (req, res) => {
     try {
         packages.fetchPackages(req, res);
     } catch (e) {
-        console.error("Failed to retrieve Packages:", e);
-        res.status(500).json({
+        res.json({
             status: res.statusCode,
             msg: 'Failed to retrieve Packages. Please try again later.'
         });
@@ -19,12 +18,11 @@ PackageRouter.get('/', (req, res) => {
 });
 
 // Fetch a specific Package by ID
-PackageRouter.get('/:id', (req, res) => {
+PackageRouter.get('/:id', (req, res) =>{
     try {
         packages.fetchPackage(req, res);
     } catch (e) {
-        console.error("Failed to retrieve a Package:", e);
-        res.status(500).json({
+        res.json({
             status: res.statusCode,
             msg: 'Failed to retrieve a Package. Please try again later.'
         });
@@ -36,8 +34,7 @@ PackageRouter.post('/addPackage', bodyParser.json(), (req, res) => {
     try {
         packages.addPackage(req, res);
     } catch (e) {
-        console.error("Failed to add a new Package:", e);
-        res.status(500).json({
+        res.json({
             status: res.statusCode,
             msg: 'Failed to add a new Package. Please try again later.'
         });
@@ -45,29 +42,30 @@ PackageRouter.post('/addPackage', bodyParser.json(), (req, res) => {
 });
 
 // Update a Package by ID
-PackageRouter.patch('/update/:id', bodyParser.json(), (req, res) => {
+PackageRouter.update('/update/:id', (req, res) => {
     try {
-        packages.updatePackage(req, res);
+        packages.deletePackage(req, res)
     } catch (e) {
-        console.error("Failed to update a Package:", e);
-        res.status(500).json({
-            status: res.statusCode,
-            msg: 'Failed to update a Package. Please try again later.'
-        });
+      res.json ({
+        status: res.statusCode,
+        msg:"failed to update package"
+
+      })
     }
-});
+
+    })
 
 // Delete a Package by ID
-PackageRouter.delete('/delete/:id', (req, res) => {
+packageRouter.delete('/delete/:id', (req, res) => {
     try {
-        packages.deletePackage(req, res);
+        packages.deletePackage(req, res)
     } catch (e) {
-        console.error("Failed to delete a Package:", e);
-        res.status(500).json({
-            status: res.statusCode,
-            msg: 'Failed to delete a Package. Please try again later.'
-        });
-    }
-});
+      res.json ({
+        status: res.statusCode,
+        msg:"failed to delete package"
 
+      })
+    }
+
+    })
 export { PackageRouter };

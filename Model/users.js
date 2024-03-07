@@ -3,7 +3,7 @@ import { hash, compare } from 'bcrypt';
 import { createToken } from "../middleware/AuthenticateUser.js";
 
 class Users {
-    async fetchUsers(req, res) {
+     fetchUsers(req, res) {
      
             const qry = `SELECT userID,
                                 firstName,
@@ -20,7 +20,7 @@ class Users {
             //     status: 200,
             //     results
             // });
-            db.query(qry, (err, results)=> {
+            db.query(qry, (err, results)=>{
                 if(err) throw err
                 res.json({
                     status: res.statusCode,
@@ -29,7 +29,7 @@ class Users {
             });
         }
 
-    async fetchUser(req, res) {
+     fetchUser(req, res) {
         
             const qry = `SELECT userID,
                                 firstName,
@@ -76,7 +76,7 @@ class Users {
 
     async updateUser(req, res) {
       
-            const data = req.body;
+            const data = req.body
             if (data.userPass) {
                 data.userPass = await hash(data.userPass, 8);
             }

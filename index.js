@@ -1,5 +1,5 @@
 import { userRouter, express } from "./Controller/usersController.js"
-import { packageRouter} from "./Controller/packageController.js";
+import { packageRouter} from "./Controller/packagesController.js";
 import cookieParser from "cookie-parser";
 import {errorHandling} from './middleware/ErrorHandling.js'
 import path from 'path'
