@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { packages } from "../model/packages.js";
 
 const PackageRouter = express.Router();
-const packages = new packages(); // Initialize Packages outside of route handlers
+const Packages = new packages(); // Initialize Packages outside of route handlers
 
 // Fetch all Packages
 PackageRouter.get('/', (req, res) => {
