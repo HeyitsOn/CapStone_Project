@@ -1,5 +1,5 @@
 import {connection as db} from "../Config/index.js"
-class packages{
+class Packages{
     fetchPackages(req, res){
         const qry = `
         SELECT packID, packName, packDescription,
@@ -70,4 +70,4 @@ class packages{
         })
     }
 }
-export { packages };
+export { Packages };

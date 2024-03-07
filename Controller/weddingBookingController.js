@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { BookingController } from "./weddingBookingController.js"; // Corrected import statement
+import { weddingBookingController } from "../Model/weddingBookings.js"
 const BookingRouter = express.Router();
 const jsonParser = bodyParser.json();
 

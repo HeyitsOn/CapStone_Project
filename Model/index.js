@@ -1,13 +1,14 @@
-import { users} from "./users.js";
-import { packages } from "./packages.js";
-import {weddingBooking} from "/.weddingBooking.js"
+import { Users} from "./users.js";
+import { Packages } from "./package.js";
+import {WeddingBooking} from "./"
 
 
-let users = new users();
-let packages = new packages();
-let weddingBooking = new weddingBooking();
+let users = new Users();
+let packages = new Packages();
+let weddingBooking = new WeddingBooking();
 
 export{
-    users,
-    packages
+    Users,
+    Packages,
+    WeddingBooking
 }
