@@ -12,7 +12,7 @@ body >* {
     margin-block: .3rem;
 }
 h1 :is(span) {
-    color: green;
+    color: rgb(204, 29, 61);
 }
 table{
     margin-inline: auto;

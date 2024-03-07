@@ -1,8 +1,8 @@
 import {connection as db} from "../config/index.js"
-class Packages{
+class packages{
     fetchPackages(req, res){
         const qry = `
-        SELECT PackID, packName, packDescription,
+        SELECT packID, packName, packDescription,
         packavaiblity, packamount, packUrl, userID
         FROM Packages;
         `
@@ -16,7 +16,7 @@ class Packages{
     }
     fetchProduct(req, res){
         const qry = `
-        SELECT  PackID, packName, packDescription,
+        SELECT  packID, packName, packDescription,
         packavaiblity, packamount, packUrl
         FROM Packages
         WHERE PackID = ${req.params.id};
@@ -44,7 +44,7 @@ class Packages{
     }
     updatePackage(req, res) {
         const qry = `
-        UPDATE Packages
+        UPDATE packages
         SET ?
         WHERE PackID = ${req.params.id};
         `
@@ -58,7 +58,7 @@ class Packages{
     }
     deletePackage(req, res) {
         const qry = `
-        DELETE FROM Packages
+        DELETE FROM packages
         WHERE PackID = ${req.params.id};
         `
         db.query(qry, (err)=>{
@@ -70,4 +70,4 @@ class Packages{
         })
     }
 }
-export { Packages };
+export { packages };

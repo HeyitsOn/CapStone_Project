@@ -1,10 +1,11 @@
-import { Users } from "./Users.js";
-import { Packages } from "./Packages.js";
+// import { users } from "./users.js"
+import { packages } from "./packages.js";
 
-let users = new Users()
-let packages = new Packages()
+
+let users = new packages()
+let packages = new packages()
 
 export{
-   Users,
-    Packages
+   users,
+packages
 }
