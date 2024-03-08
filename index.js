@@ -1,4 +1,4 @@
-import { userRouter, express } from "./controller./usersController.js"
+import { userRouter, express } from "./controller/usersController.js"
 import { packageRouter} from "./controller/packagesController.js";
 import cookieParser from "cookie-parser";
 import {errorHandling} from './middleware/ErrorHandling.js'
